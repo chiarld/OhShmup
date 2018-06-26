@@ -18,6 +18,10 @@ public class Player : MonoBehaviour {
     GameObject laser;
     bool currentlyShooting = false;
 
+    // health support
+    int health;
+
+
 	// Use this for initialization
 	void Start () {
 
@@ -32,6 +36,8 @@ public class Player : MonoBehaviour {
         laser = Instantiate(Resources.Load("Laser")) as GameObject;
         laserReady.Invoke(LaserPosition());
 
+        // health support
+        health = GameConstants.PlayerHealth;
 	}
 	
 	// Update is called once per frame
@@ -45,7 +51,7 @@ public class Player : MonoBehaviour {
         if(GameObject.FindGameObjectWithTag("Laser") == null)
         {
             laser = Instantiate(Resources.Load("Laser")) as GameObject;
-            laserReady.Invoke(LaserPosition());
+            laser.transform.position = LaserPosition();
             currentlyShooting = false;
         }
 
@@ -60,7 +66,7 @@ public class Player : MonoBehaviour {
         if(verticalMovement != 0)
         {
             position = transform.position;
-            position.y += GameConstants.playerSpeed * verticalMovement * Time.deltaTime;
+            position.y += GameConstants.PlayerSpeed * verticalMovement * Time.deltaTime;
             transform.position = position;
 
             if (GameObject.FindGameObjectWithTag("Laser") != null && currentlyShooting == false)
@@ -69,6 +75,16 @@ public class Player : MonoBehaviour {
             }
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Green Goo"))
+        {
+            health -= 100;
+            Debug.Log("Current Health: " + health);
+            Destroy(collision.gameObject);
+        }
     }
 
     // event related methods

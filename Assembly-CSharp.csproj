@@ -63,11 +63,14 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\a. Events\LaserReady.cs" />
     <Compile Include="Assets\Scripts\a. Events\PlayerShoot.cs" />
+    <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawning.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\GameConstants.cs" />
+    <Compile Include="Assets\Scripts\GreenGoo.cs" />
     <Compile Include="Assets\Scripts\Laser.cs" />
-    <Compile Include="Assets\Scripts\LaserSpawning.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Timer.cs" />
     <Reference Include="Unity.PackageManagerUI.Editor">
       <HintPath>/Users/chiarld/Code/Unity/OhShmup/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>

@@ -1,13 +1,12 @@
 ﻿<Properties StartupConfiguration="{3474C041-1F68-AD0A-8714-A67276FFE794}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/a. Events/LaserReady.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameConstants.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player.cs" Line="48" Column="52" />
-      <File FileName="Assets/Scripts/a. Events/PlayerShoot.cs" Line="7" Column="1" />
-      <File FileName="Assets/Scripts/EventManager.cs" Line="21" Column="20" />
-      <File FileName="Assets/Scripts/GameConstants.cs" Line="10" Column="1" />
-      <File FileName="Assets/Scripts/Laser.cs" Line="30" Column="30" />
-      <File FileName="Assets/Scripts/a. Events/LaserReady.cs" Line="7" Column="40" />
+      <File FileName="Assets/Scripts/Player.cs" Line="85" Column="6" />
+      <File FileName="Assets/Scripts/Laser.cs" Line="59" Column="1" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="26" Column="36" />
+      <File FileName="Assets/Scripts/GreenGoo.cs" Line="27" Column="16" />
+      <File FileName="Assets/Scripts/GameConstants.cs" Line="11" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
