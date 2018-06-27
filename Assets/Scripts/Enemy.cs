@@ -24,8 +24,9 @@ public class Enemy : MonoBehaviour {
         rb2d.AddForce(unitVector * GameConstants.EnemySpeed, ForceMode2D.Impulse);
 
         clock = gameObject.AddComponent<Timer>();
-        clock.Duration = 2f;
+        clock.Duration = GameConstants.EnemyShootingTime;
         clock.Run();
+
 	}
 	
 	// Update is called once per frame

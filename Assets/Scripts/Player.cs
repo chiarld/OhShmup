@@ -13,7 +13,9 @@ public class Player : MonoBehaviour {
 
     // shooting support
     PlayerShoot playerShootEvent = new PlayerShoot();
-    LaserReady laserReady = new LaserReady();
+    LasersReady lasersReadyEvent = new LasersReady();
+    LasersPlacing lasersPlacingEvent = new LasersPlacing();
+
     Vector3 laserPosition = new Vector3();
     GameObject laser;
     bool currentlyShooting = false;
@@ -28,13 +30,15 @@ public class Player : MonoBehaviour {
         // movement support
         rb2d = GetComponent<Rigidbody2D>();
         bc2d = GetComponent<BoxCollider2D>();
+        position = transform.position;
 
         // shooting support
         EventManager.AddPlayerShootInvoker(this);
         EventManager.AddLaserReadyInvoker(this);
-        position = transform.position;
-        laser = Instantiate(Resources.Load("Laser")) as GameObject;
-        laserReady.Invoke(LaserPosition());
+        EventManager.AddLasersPlacingInvoker(this);
+        lasersReadyEvent.Invoke(LaserPosition());
+
+        lasersPlacingEvent.Invoke(LaserPosition());
 
         // health support
         health = GameConstants.PlayerHealth;
@@ -45,13 +49,12 @@ public class Player : MonoBehaviour {
         
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Shoot();
+            playerShootEvent.Invoke();
             currentlyShooting = true;
         }
         if(GameObject.FindGameObjectWithTag("Laser") == null)
         {
-            laser = Instantiate(Resources.Load("Laser")) as GameObject;
-            laser.transform.position = LaserPosition();
+            lasersPlacingEvent.Invoke(LaserPosition());
             currentlyShooting = false;
         }
 
@@ -68,11 +71,11 @@ public class Player : MonoBehaviour {
             position = transform.position;
             position.y += GameConstants.PlayerSpeed * verticalMovement * Time.deltaTime;
             transform.position = position;
+        }
 
-            if (GameObject.FindGameObjectWithTag("Laser") != null && currentlyShooting == false)
-            {
-                laserReady.Invoke(LaserPosition());
-            }
+        if (GameObject.FindGameObjectWithTag("Laser") != null && currentlyShooting == false)
+        {
+            lasersReadyEvent.Invoke(LaserPosition());
         }
 
     }
@@ -81,18 +84,16 @@ public class Player : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Green Goo"))
         {
+            
             health -= 100;
-            Debug.Log("Current Health: " + health);
             Destroy(collision.gameObject);
+
+            Debug.Log("Current Health: " + health);
+
         }
     }
 
     // event related methods
-
-    void Shoot()
-    {
-        playerShootEvent.Invoke();
-    }
 
     Vector3 LaserPosition()
     {
@@ -110,7 +111,12 @@ public class Player : MonoBehaviour {
 
     public void AddLaserReadyListener(UnityAction<Vector3> listener)
     {
-        laserReady.AddListener(listener);
+        lasersReadyEvent.AddListener(listener);
+    }
+
+    public void AddLaserPlacingListener(UnityAction<Vector3> listener)
+    {
+        lasersPlacingEvent.AddListener(listener);
     }
 
 }

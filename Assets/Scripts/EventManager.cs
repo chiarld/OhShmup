@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public static class EventManager
 {
-    // Shooting Event
+    // PlayerShoot Event
     static List<Player> playerShootInvokers = new List<Player>();
     static List<UnityAction> playerShootListeners = new List<UnityAction>();
 
@@ -27,7 +27,7 @@ public static class EventManager
         }
     }
 
-    // Laser Spawning Event
+    // LasersReady Event
     static List<Player> laserReadyInvokers = new List<Player>();
     static List<UnityAction<Vector3>> laserReadyListeners = new List<UnityAction<Vector3>>();
 
@@ -47,6 +47,28 @@ public static class EventManager
         {
             invoker.AddLaserReadyListener(listener);
         } 
+    }
+
+    // LaserPlacing Event
+    static List<Player> lasersPlacingInvokers = new List<Player>();
+    static List<UnityAction<Vector3>> lasersPlacingListeners = new List<UnityAction<Vector3>>();
+
+    public static void AddLasersPlacingInvoker(Player invoker)
+    {
+        lasersPlacingInvokers.Add(invoker);
+        foreach (UnityAction<Vector3> listener in lasersPlacingListeners)
+        {
+            invoker.AddLaserPlacingListener(listener);
+        }
+    }
+
+    public static void AddLasersPlacingListener(UnityAction<Vector3> listener)
+    {
+        lasersPlacingListeners.Add(listener);
+        foreach (Player invoker in lasersPlacingInvokers)
+        {
+            invoker.AddLaserPlacingListener(listener);
+        }
     }
 
 }
