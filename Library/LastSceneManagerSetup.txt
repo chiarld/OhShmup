@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/ohshmup.unity
+- path: Assets/Scenes/startmenu.unity
   isLoaded: 1
   isActive: 1

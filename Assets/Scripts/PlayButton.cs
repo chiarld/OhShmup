@@ -32,7 +32,6 @@ public class PlayButton : MonoBehaviour {
                 goToMenu = Menus.Playing;
                 break;
             case "endmenu":
-                Debug.Log("OK 1");
                 goToMenu = Menus.Start;
                 break;
         }
@@ -47,7 +46,6 @@ public class PlayButton : MonoBehaviour {
         if(!playButtonExpanded)
         {
             transform.localScale = changedScale;
-
             playButtonExpanded = true;
         }
     }
@@ -60,11 +58,11 @@ public class PlayButton : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        Debug.Log("OK 2");
-        playHitEvent.Invoke(goToMenu);
+        playHitEvent.Invoke(goToMenu, 0);
+        AudioManager.PlayAudio(Audios.ButtonPressed);
     }
 
-    public void AddPlayHitListener(UnityAction<Menus> listener)
+    public void AddPlayHitListener(UnityAction<Menus, int> listener)
     {
         playHitEvent.AddListener(listener);
     }

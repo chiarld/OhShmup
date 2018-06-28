@@ -3,4 +3,4 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayHit : UnityEvent<Menus> {}
+public class PlayHit : UnityEvent<Menus, int> {}

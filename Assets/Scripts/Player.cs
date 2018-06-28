@@ -21,8 +21,10 @@ public class Player : MonoBehaviour {
     bool currentlyShooting = false;
 
     // health support
-    int health;
+    LoseHealth loseHealthEvent = new LoseHealth();
 
+    //points support
+    int points;
 
 	// Use this for initialization
 	void Start () {
@@ -41,7 +43,7 @@ public class Player : MonoBehaviour {
         lasersPlacingEvent.Invoke(LaserPosition());
 
         // health support
-        health = GameConstants.PlayerHealth;
+        EventManager.AddLoseHealthInvokers(this);
 	}
 	
 	// Update is called once per frame
@@ -50,6 +52,7 @@ public class Player : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Space))
         {
             playerShootEvent.Invoke();
+            AudioManager.PlayAudio(Audios.PlayerShoot);
             currentlyShooting = true;
         }
         if(GameObject.FindGameObjectWithTag("Laser") == null)
@@ -84,12 +87,9 @@ public class Player : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Green Goo"))
         {
-            
-            health -= 100;
+            loseHealthEvent.Invoke(GameConstants.EnemyDamage);
+            AudioManager.PlayAudio(Audios.PlayerHit);
             Destroy(collision.gameObject);
-
-            Debug.Log("Current Health: " + health);
-
         }
     }
 
@@ -118,5 +118,11 @@ public class Player : MonoBehaviour {
     {
         lasersPlacingEvent.AddListener(listener);
     }
+
+    public void AddHealthListener(UnityAction<int> listener)
+    {
+        loseHealthEvent.AddListener(listener);
+    }
+
 
 }

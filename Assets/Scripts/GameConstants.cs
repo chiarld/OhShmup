@@ -11,5 +11,7 @@ public class GameConstants : MonoBehaviour {
     public const int PlayerHealth = 1000;
     public const float EnemySpawningTime = 1f;
     public const float EnemyShootingTime = 2f;
+    public const int EnemyDamage = 100;
+    public const int PointsPerKill = 100;
 
 }

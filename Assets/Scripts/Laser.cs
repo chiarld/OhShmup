@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Laser : MonoBehaviour {
     
@@ -12,6 +13,9 @@ public class Laser : MonoBehaviour {
     Vector2 unitVector = new Vector2(1, 0);
     bool laserReady = true;
 
+    // points support
+    GainPoints gainPointsEvent = new GainPoints();
+
 	// Use this for initialization
 	void Start () {
 
@@ -21,6 +25,9 @@ public class Laser : MonoBehaviour {
 
         EventManager.AddPlayerShootListener(Shoot);
         EventManager.AddLaserReadyListener(PositionLaser);
+
+        // points support 
+        EventManager.AddGainPointsInvokers(this);
 
 
 	}
@@ -47,12 +54,18 @@ public class Laser : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy") || 
-           collision.gameObject.CompareTag("Green Goo"))
+        if(collision.gameObject.CompareTag("Enemy"))
         {
+            gainPointsEvent.Invoke(GameConstants.PointsPerKill);
+            AudioManager.PlayAudio(Audios.EnemyDied);
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
+    }
+
+    public void AddGainPointsListener(UnityAction<int> listener)
+    {
+        gainPointsEvent.AddListener(listener);
     }
 
 }
