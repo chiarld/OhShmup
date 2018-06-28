@@ -10,7 +10,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{37911917-5F61-BCF9-A929-6505CAE01F99}</ProjectGuid>
+    <ProjectGuid>{3474C041-1F68-AD0A-8714-A67276FFE794}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -64,19 +64,23 @@
     <Compile Include="Assets\Scripts\a. Events\LasersPlacing.cs" />
     <Compile Include="Assets\Scripts\a. Events\LasersReady.cs" />
     <Compile Include="Assets\Scripts\a. Events\PlayerShoot.cs" />
+    <Compile Include="Assets\Scripts\a. Events\PlayHit.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\GameConstants.cs" />
     <Compile Include="Assets\Scripts\GreenGoo.cs" />
     <Compile Include="Assets\Scripts\Laser.cs" />
+    <Compile Include="Assets\Scripts\MenuManager.cs" />
+    <Compile Include="Assets\Scripts\Menus.cs" />
+    <Compile Include="Assets\Scripts\PlayButton.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Pool.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>/Users/chiarld/Downloads/OhShmupOld/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>/Users/chiarld/Code/Unity/OhShmup/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>/Users/chiarld/Downloads/OhShmupOld/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>/Users/chiarld/Code/Unity/OhShmup/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -250,7 +254,7 @@
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/Unity.Locator.dll</HintPath>
     </Reference>
     <Reference Include="Facebook.Unity.Settings">
-      <HintPath>/Users/chiarld/Downloads/OhShmupOld/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+      <HintPath>/Users/chiarld/Code/Unity/OhShmup/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UIAutomation">
       <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>

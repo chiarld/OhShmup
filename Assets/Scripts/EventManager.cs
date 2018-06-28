@@ -71,4 +71,26 @@ public static class EventManager
         }
     }
 
+    // PlayHit Event
+    static List<PlayButton> playHitInvokers = new List<PlayButton>();
+    static List<UnityAction<Menus>> playHitListener = new List<UnityAction<Menus>>();
+
+    public static void AddPlayHitInvokers(PlayButton invoker)
+    {
+        playHitInvokers.Add(invoker);
+        foreach (UnityAction<Menus> listener in playHitListener)
+        {
+            invoker.AddPlayHitListener(listener);
+        }
+    }
+
+    public static void AddPlayHitListeners(UnityAction<Menus> listener)
+    {
+        playHitListener.Add(listener);
+        foreach (PlayButton invoker in playHitInvokers)
+        {
+            invoker.AddPlayHitListener(listener);
+
+        }
+    }
 }
