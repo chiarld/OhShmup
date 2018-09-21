@@ -6,13 +6,13 @@
       <File FileName="Assets/Scripts/Player.cs" Line="90" Column="63" />
       <File FileName="Assets/Scripts/Enemy.cs" Line="57" Column="1" />
       <File FileName="Assets/Scripts/Laser.cs" Line="64" Column="6" />
-      <File FileName="Assets/Scripts/PlayButton.cs" Line="62" Column="1" />
+      <File FileName="Assets/Scripts/PlayButton.cs" Line="33" Column="23" />
       <File FileName="Assets/Scripts/Points.cs" Line="24" Column="5" />
       <File FileName="Assets/Scripts/a. Events/GameOver.cs" Line="7" Column="1" />
       <File FileName="Assets/Scripts/EventManager.cs" Line="183" Column="10" />
       <File FileName="Assets/Scripts/HUD.cs" Line="44" Column="10" />
       <File FileName="Assets/Scripts/MenuManager.cs" Line="41" Column="2" />
-      <File FileName="Assets/Scripts/GameOverHUD.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameOverHUD.cs" Line="20" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
